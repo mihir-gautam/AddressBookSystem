@@ -9,29 +9,18 @@ namespace AddressBookSystem
 {
     class Contact
     {
-        public static void Person()
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public int ZipCode { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public static void CreateContact()
         {
-            List<string> data = new List<string>();
-            List<string> entryReceived = new List<string>();
-            data.Add("first name");
-            data.Add("last name");
-            data.Add("address");
-            data.Add("city");
-            data.Add("state");
-            data.Add("zip code");
-            data.Add("phone no.");
-            data.Add("email id");
-            for (int i = 0; i < data.Count; i++)
-            {
-                Console.WriteLine("Enter the {0}: ", data.ElementAt(i));
-                string input = Console.ReadLine();
-                entryReceived.Add(input);
-            }
-            Console.WriteLine("The contact details of person are given below");
-            for (int j = 0; j < data.Count; j++)
-            {
-                Console.WriteLine(data.ElementAt(j) + " : " + entryReceived.ElementAt(j));
-            }
+            List<Contact> Person = new List<Contact>();
         }
     }
 }
+

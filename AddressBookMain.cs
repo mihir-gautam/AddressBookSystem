@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AddressBookSystem
 {
@@ -7,7 +8,7 @@ namespace AddressBookSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Address Book Program!");
-            Contact.Person();
+            Contact.CreateContact();
         }
     }
 }
