@@ -75,6 +75,7 @@ namespace AddressBookSystem
             }
             else
             {
+                Person.Remove(deleteContact);
                 Console.WriteLine("Existing contact details of {0} has been deleted succesfully", firstName);
             }
         }
