@@ -25,6 +25,7 @@ namespace AddressBookSystem
                         {
                             newProgram.book.AddPerson();
                             Console.WriteLine("Contact added!");
+                            Console.WriteLine("New count of contacts in address book : " + newProgram.book.ContactList.Count);
                             break;
                         }
                     case 2:
@@ -37,6 +38,7 @@ namespace AddressBookSystem
                         {
                             Console.WriteLine("Enter the first name of that person: ");
                             newProgram.book.DeletePersonDetails();
+                            Console.WriteLine("New count of contacts in address book : " + newProgram.book.ContactList.Count);
                             break;
                         }
                     case 4:

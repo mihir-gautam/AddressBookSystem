@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -8,7 +9,7 @@ namespace AddressBookSystem
 {
     class AddressBook
     {
-
+        public ArrayList ContactList = new ArrayList();
         List<Contact> Person = new List<Contact>();
         public void AddPerson()
         {
@@ -31,6 +32,7 @@ namespace AddressBookSystem
             contact.Email = Console.ReadLine();
 
             Person.Add(contact);
+            ContactList.Add(Person);
         }
         public Contact FindPerson(string firstName)
         {
@@ -77,6 +79,7 @@ namespace AddressBookSystem
             {
                 Person.Remove(deleteContact);
                 Console.WriteLine("Existing contact details of {0} has been deleted succesfully", firstName);
+                ContactList.Remove(Person);
             }
         }
     }
