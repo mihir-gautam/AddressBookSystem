@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace AddressBookSystem
@@ -62,6 +63,19 @@ namespace AddressBookSystem
                 Console.WriteLine("New Email");
                 editedContact.Email = Console.ReadLine();
                 Console.WriteLine("Contact details updated successfully!");
+            }
+        }
+        public void DeletePersonDetails()
+        {
+            string firstName = Console.ReadLine();
+            Contact deleteContact = FindPerson(firstName);
+            if (deleteContact == null)
+            {
+                Console.WriteLine("Address for {0} count not be found.", firstName);
+            }
+            else
+            {
+                Console.WriteLine("Existing contact details of {0} has been deleted succesfully", firstName);
             }
         }
     }
