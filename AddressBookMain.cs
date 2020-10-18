@@ -22,7 +22,6 @@ namespace AddressBookSystem
             while (exist)
             {
                 string BookName;
-                ArrayList ContactList = new ArrayList();
                 HashSet<Contact> ContactSet = new HashSet<Contact>();
                 Dictionary<string, HashSet<Contact>> Book = new Dictionary<string, HashSet<Contact>>();
  
