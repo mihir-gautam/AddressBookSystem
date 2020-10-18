@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace AddressBookSystem
 {
-    class Contact
+    public class Contact
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,10 +17,13 @@ namespace AddressBookSystem
         public string ZipCode { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public static void CreateContact()
+        public void CreateContact()
         {
             List<Contact> Person = new List<Contact>();
         }
     }
 }
+       
+    
+
 

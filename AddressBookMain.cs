@@ -8,8 +8,10 @@ namespace AddressBookSystem
     class AddressBookMain
     {
         AddressBook book;
+        public HashSet<Contact> ContactSet;
         public AddressBookMain()
         {
+            ContactSet = new HashSet<Contact>();
             book = new AddressBook();
         }
         static void Main(string[] args)
@@ -21,7 +23,9 @@ namespace AddressBookSystem
             {
                 string BookName;
                 ArrayList ContactList = new ArrayList();
-                Dictionary<string, ArrayList> Book = new Dictionary<string, ArrayList>();
+                HashSet<Contact> ContactSet = new HashSet<Contact>();
+                Dictionary<string, HashSet<Contact>> Book = new Dictionary<string, HashSet<Contact>>();
+ 
                 Console.WriteLine("Enter new address book name : ");
                 BookName = Console.ReadLine();
                 Console.WriteLine("Select the option. \n1. Add new contact. \n2. Edit existing contact. \n3. Delete existing contact \n4. Exit.");
@@ -31,10 +35,15 @@ namespace AddressBookSystem
                     case 1:
                         {
                             newProgram.book.AddPerson();
-                            Book.Add(BookName, ContactList);
-                            Console.WriteLine("Contact added!");
-                            Console.WriteLine("New count of contacts in address book : " + Book.Count);
-                            break;
+                            if (newProgram.book.CheckDuplicate())
+                            { break; }
+                            else
+                            {
+                                Book.Add(BookName, ContactSet);
+                                Console.WriteLine("Contact added!");
+                                Console.WriteLine("New count of contacts in address book : " + Book.Count);
+                                break;
+                            }
                         }
                     case 2:
                         {

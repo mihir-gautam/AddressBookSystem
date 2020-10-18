@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -9,8 +11,13 @@ namespace AddressBookSystem
 {
     class AddressBook
     {
-        public ArrayList ContactList = new ArrayList();
-        List<Contact> Person = new List<Contact>();
+        public HashSet<Contact> ContactSet = new HashSet<Contact>();
+        List<Contact> Person = new List<Contact>(); 
+        HashSet<string> ContactName = new HashSet<string>();
+
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+
         public void AddPerson()
         {
             Contact contact = new Contact();
@@ -32,7 +39,24 @@ namespace AddressBookSystem
             contact.Email = Console.ReadLine();
 
             Person.Add(contact);
-            ContactList.Add(Person);
+            ContactSet.Add(contact);
+            ContactName.Add(contact.FirstName);
+            ContactName.Add(contact.LastName);
+            
+        }
+        public bool CheckDuplicate()
+        {
+            if (ContactName.Contains(FirstName) && ContactName.Contains(LastName))
+            {
+                Console.WriteLine("Contact details for this person already stored.");
+                return true;
+            }
+            else
+            {
+                ContactName.Add(FirstName);
+                ContactName.Add(LastName);
+                return false;
+            }
         }
         public Contact FindPerson(string firstName)
         {
@@ -79,7 +103,7 @@ namespace AddressBookSystem
             {
                 Person.Remove(deleteContact);
                 Console.WriteLine("Existing contact details of {0} has been deleted succesfully", firstName);
-                ContactList.Remove(Person);
+                ContactSet.Remove(deleteContact);
             }
         }
     }
